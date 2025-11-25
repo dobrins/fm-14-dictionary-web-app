@@ -14,7 +14,7 @@ const Result = ({ data }: PassedProps) => {
     <div className="result">
       <div className="result__heading">
         <h1 className="txt-heading-l">{data.word}</h1>
-        {data.phonetics && (
+        {Array.isArray(data.phonetic) && data.phonetic.length > 0 && (
           <h2 className="txt-heading-m txt-purple">{data.phonetic}</h2>
         )}
         {data.phonetics &&

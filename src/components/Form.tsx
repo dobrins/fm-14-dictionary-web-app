@@ -18,7 +18,7 @@ const Form = ({ handleSubmit, setInputValue, inputValue }: PassedProps) => {
         placeholder="Enter a word"
       />
       <button type="submit">
-        <div className="sr-only">Submit</div>
+        <span className="sr-only">Submit</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="18"
