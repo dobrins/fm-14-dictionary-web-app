@@ -523,7 +523,6 @@ input:checked + .switch::after {
   width: 46rem;
   padding-inline: var(--space-300);
   margin-inline: auto;
-  box-sizing: content-box;
   margin-block: var(--space-700);
   display: grid;
   place-content: center space-between;
@@ -546,7 +545,6 @@ main {
   width: 46rem;
   padding-inline: var(--space-300);
   margin-inline: auto;
-  box-sizing: content-box;
 }
 
 /*# sourceMappingURL=style.css.map */
