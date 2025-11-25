@@ -12,11 +12,13 @@ const Form = ({ handleSubmit, setInputValue, inputValue }: PassedProps) => {
       onSubmit={handleSubmit}
       className="form">
       <input
+        type="text"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
         placeholder="Enter a word"
       />
       <button type="submit">
+        <div className="sr-only">Submit</div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="18"
