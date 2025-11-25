@@ -1,0 +1,20 @@
+@use "../utils" as *;
+
+.error {
+  padding-block: var(--space-1000);
+  text-align: center;
+  display: grid;
+  gap: var(--space-300);
+
+  h2 {
+    font-size: var(--space-250);
+  }
+
+  p {
+    color: var(--neutral-500);
+  }
+
+  span {
+    font-size: var(--space-600);
+  }
+}

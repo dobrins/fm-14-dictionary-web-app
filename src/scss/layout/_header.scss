@@ -1,0 +1,22 @@
+@use "../utils" as *;
+
+.header {
+  @include container;
+  margin-block: var(--space-700);
+  display: grid;
+  place-content: center space-between;
+  height: var(--space-400);
+  align-items: center;
+  grid-template-columns: 1fr max-content repeat(2, min-content);
+  gap: var(--space-300);
+
+  img {
+    width: auto;
+  }
+
+  &__mode {
+    display: flex;
+    align-items: center;
+    gap: var(--space-225);
+  }
+}

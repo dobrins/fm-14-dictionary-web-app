@@ -1,0 +1,123 @@
+@use "../utils/" as *;
+
+.dropdown {
+  position: relative;
+
+  &__btn {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    background-color: transparent;
+    height: var(--space-400);
+    color: var(--neutral-700);
+    font-weight: var(--font-bold);
+    gap: var(--space-200);
+
+    @container style(--theme: 🌙) {
+      color: var(--white);
+    }
+
+    &:hover,
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  &__icon {
+    width: var(--space-200);
+    height: var(--space-200);
+    transition: transform 0.2s;
+
+    &--open {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__menu {
+    width: 11.5rem;
+    display: grid;
+    position: absolute;
+    top: 3rem;
+    right: 0;
+    z-index: 1;
+    background-color: var(--white);
+    border-radius: var(--space-200);
+    padding: var(--space-175) var(--space-300);
+    list-style: none;
+    box-shadow: 0 var(--space-50) var(--space-400) hsl(0deg 0 0 / 10%);
+
+    li {
+      margin: 0;
+      padding-block: var(--space-100);
+      font-weight: var(--font-bold);
+
+      &:hover {
+        color: var(--purple);
+      }
+    }
+
+    @container style(--theme: 🌙) {
+      color: var(--white);
+      background-color: var(--neutral-900);
+      box-shadow: 0 var(--space-50) var(--space-400) var(--purple);
+    }
+  }
+
+  &__item {
+    cursor: pointer;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: translateX(var(--space-25));
+    }
+  }
+}
+
+.switch {
+  height: 1.25rem;
+  width: 2.375rem;
+  position: relative;
+  background-color: var(--neutral-500);
+  transition: 0.4s;
+  border-radius: var(--space-150);
+  cursor: pointer;
+
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: var(--white);
+    bottom: var(--space-50);
+    left: var(--space-50);
+    height: var(--space-150);
+    width: var(--space-150);
+    border-radius: 50%;
+    transition: transform 0.1s ease-in-out;
+    display: block;
+    z-index: 11;
+  }
+}
+
+.switch-input {
+  display: none;
+}
+
+input:checked + .switch {
+  background-color: var(--purple);
+  &::after {
+    transform: translateX(var(--space-225));
+  }
+}
+
+.label-moon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  path {
+    @container style(--theme: 🌙) {
+      stroke: var(--purple);
+    }
+  }
+}

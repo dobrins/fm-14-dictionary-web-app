@@ -1,0 +1,56 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+/* Colors */
+
+.txt-purple {
+  color: var(--purple);
+}
+
+.txt-red {
+  color: var(--red);
+}
+
+/* Loop neutral colors */
+
+$values: 100, 200, 500, 600, 700, 800, 900;
+
+@each $num in $values {
+  .txt-neutral-#{$num} {
+    color: var(--neutral-#{$num});
+  }
+}
+
+/* Typography */
+
+$typography: "heading-l", "heading-m", "heading-s", "body-m", "body-s";
+
+@each $num in $typography {
+  .txt-#{$num} {
+    @include preset("#{$num}");
+  }
+}
+
+.loader {
+  margin-block-start: var(--space-800);
+  display: grid;
+  place-content: center;
+}
+
+.divider {
+  height: var(--space-400);
+  width: var(--space-12);
+  background-color: var(--neutral-200);
+}
+
+.sans-serif {
+  font-family: Inter, sans-serif;
+}
+
+.serif {
+  font-family: Lora, serif;
+}
+
+.mono {
+  font-family: Inconsolata, monospace;
+}

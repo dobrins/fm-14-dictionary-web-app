@@ -1,0 +1,46 @@
+@use "../utils" as *;
+
+.player-button {
+  width: var(--space-900);
+  height: var(--space-900);
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+  background-color: rgb(164 69 237 / 25%);
+  position: relative;
+  display: grid;
+  place-content: center;
+
+  &:hover {
+    background-color: rgb(164 69 237 / 45%);
+  }
+
+  &--play {
+    &::after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: var(--space-125) 0 var(--space-125) var(--space-175);
+      border-color: transparent transparent transparent var(--purple);
+      display: block;
+    }
+  }
+
+  &--stop {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-25);
+    &::before,
+    &::after {
+      content: "";
+      width: var(--space-100);
+      height: var(--space-250);
+      background-color: var(--purple);
+      display: block;
+    }
+
+    &::before {
+      justify-self: end;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@use "../utils" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+
+:root {
+  @media (prefers-color-scheme: light) {
+    --theme: ☀️;
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    --theme: 🌙;
+    color-scheme: dark;
+  }
+}
+
+body {
+  color-scheme: light;
+  --theme-body-bg: var(--white);
+  --theme-text: var(--neutral-700);
+
+  @container style(--theme: 🌙) {
+    color-scheme: dark;
+    --theme-body-bg: var(--neutral-900);
+    --theme-text: var(--white);
+  }
+
+  @include preset("body-m");
+  color: var(--theme-text);
+  background-color: var(--theme-body-bg);
+}

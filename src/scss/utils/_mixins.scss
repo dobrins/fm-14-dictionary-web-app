@@ -1,0 +1,66 @@
+@use "variables" as *;
+@use "sass:map";
+
+/* Media Queries */
+
+@mixin mq($breakpoint) {
+  @if $breakpoint == s {
+    @media (width <= 40em) {
+      @content;
+    }
+  } @else if $breakpoint == m {
+    @media (width <= 60em) {
+      @content;
+    }
+  }
+}
+
+/* Typography */
+
+$preset-styles: (
+  "heading-l": (
+    font-size: var(--space-800),
+    font-weight: var(--font-bold),
+    line-height: 1.24,
+  ),
+  "heading-m": (
+    font-size: var(--space-300),
+    font-weight: var(--font-regular),
+    line-height: 1.21,
+  ),
+  "heading-s": (
+    font-size: var(--space-250),
+    font-weight: var(--font-regular),
+    line-height: 1.2,
+  ),
+  "body-m": (
+    font-size: var(--space-225),
+    font-weight: var(--font-regular),
+    line-height: 1.33,
+  ),
+  "body-s": (
+    font-size: var(--space-175),
+    font-weight: var(--font-regular),
+    line-height: 1.21,
+  ),
+);
+
+@mixin preset($n) {
+  $preset: map.get($preset-styles, $n);
+
+  @if $preset {
+    font-family: map.get($preset, font-family);
+    font-size: map.get($preset, font-size);
+    font-weight: map.get($preset, font-weight);
+    line-height: map.get($preset, line-height);
+    letter-spacing: map.get($preset, letter-spacing);
+  }
+}
+
+@mixin container {
+  max-width: 100%;
+  width: 46rem;
+  padding-inline: var(--space-300);
+  margin-inline: auto;
+  box-sizing: content-box;
+}
